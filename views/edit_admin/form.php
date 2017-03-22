@@ -68,10 +68,15 @@
                 <label>Gambar</label>
                 <?php
                 if($id){ ?>
-                        <br />
-                        <img src="<?= "../img/user/".$row->user_img ?>" style="width:100%;"/>
-                <?php } ?>
-                <input type="file" name="i_img" id="i_img" />
+                <?php 
+                if($row->user_img){
+                  ?>
+                    <img src="<?= "../img/user/".$row->user_img ?>" style="width:100%;"/>
+                    <?}?>
+                    <img id="user_img" style="width:100%;padding: 10px;"/>
+                    <input type="file" accept="image/*" name="i_img" onchange="loadFile(event)">
+                <?php
+                 } ?>
               </div>
             </div>
             <div style="clear:both;"></div>
@@ -84,3 +89,13 @@
     </div><!--/.col (right) -->
   </div>   <!-- /.row -->
 </section>
+<script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var user_img = document.getElementById('user_img');
+      user_img.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>

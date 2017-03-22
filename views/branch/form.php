@@ -30,15 +30,6 @@
                 <label>Description</label>
                 <textarea name="i_desc" class="form-control" rows="5"><?= $row->branch_desc ?></textarea>
               </div>
-              <div class="form-group">
-                <label>Gambar </label>
-                <?php
-                if($id){ $gambar = ($row->branch_img) ? "../img/branch/".$row->branch_img : "../img/img_not_found.png"; ?>
-                <br />
-                <img src="<?= $gambar ?>" style="max-width:100%;"/>
-                <?php } ?>
-                <input type="file" name="i_img" id="i_img" />
-              </div>
             </div>
           <div style="clear:both;"></div>
           </div><!-- /.box-body -->

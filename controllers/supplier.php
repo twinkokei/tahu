@@ -87,7 +87,7 @@ switch ($page) {
 					supplier_email = '$i_email',
 					supplier_addres = '$i_alamat'
 					";
-			echo $data;
+			// echo $data;
 			update($data, $id);
 			header('Location: supplier.php?page=list&did=2');
 	break;

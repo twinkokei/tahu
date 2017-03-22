@@ -33,25 +33,25 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
+     <div class="box">
+      <div class="box-body2 table-responsive">
       <div class="title_page"> <?= $title ?></div>
-      <div class="box">
-        <div class="box-body2 table-responsive">
         <table id="example_stok" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th width="5%">No</th>
-              <th style="text-align:center;">Nama Item</th>
-              <th style="text-align:center;">Kategori Item</th>
-              <th style="text-align:center;">Limit Item</th>
+              <th style="text-align:center;max-width: 100px;">Nama Item</th>
+              <th style="text-align:center;max-width: 100px;">Kategori Item</th>
+              <th style="text-align:center;max-width: 100px;">Limit Item</th>
               <?php
                   $no=1;
                   $q_branch = select_config('branches', '');
                   while ($r_branch = mysql_fetch_array($q_branch)) {?>
-                    <th style="text-align:center;"><?= $r_branch['branch_name']?></th>
+                    <th style="text-align:center;max-width: 100px;"><?= $r_branch['branch_name']?></th>
                   <?}?>
-              <th style="text-align:center;">Harga Pokok Produksi</th>
-              <th style="text-align:center;">Harga Jual</th>
-              <th style="text-align:center;">Config</th>
+              <th style="text-align:center;max-width: 200px;">Harga Pokok Produksi</th>
+              <th style="text-align:center;max-width: 200px;">Harga Jual</th>
+              <th style="text-align:center;width: 100px;">Config</th>
             </tr>
           </thead>
         <tbody>
@@ -66,16 +66,16 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
                <?php
                 $q_branch_ = select_config('branches', '');
                 while ($r_branch = mysql_fetch_array($q_branch_)) {?>
-               <td
+               <td style="text-align: right"
                  <?php
                   $i_id=$row['item_id'];
-                  if( get_stock($i_id,$cabang) <= $row['item_limit']){ ?>
+                  if( get_stock($i_id,$r_branch['branch_id']) <= $row['item_limit']){ ?>
                     bgcolor="#d82827" style="color:#fff;"<?php  } ?>>
-                  <?= get_stock($row['item_id'],$cabang)?>
+                  <?= get_stock($row['item_id'],$r_branch['branch_id'])?>
                   </td>         
                  <?}?>
-                <td><?= format_rupiah($row['item_hpp_price'])?></td>
-                <td><?= format_rupiah($row['item_price'])?></td>
+                <td style="text-align:right;"><?= format_rupiah($row['item_hpp_price'])?></td>
+                <td style="text-align:right;"><?= format_rupiah($row['item_price'])?></td>
                 <td style="text-align:center;">
                   <a href="stock_master.php?page=form&id=<?= $row['item_id']?>" class="btn btn-default" >
                     <i class="fa fa-pencil"></i>
@@ -106,7 +106,7 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example_stok').DataTable( {
-        "scrollX": true
+        "scrollX": "100%"
     } );
 } );
 
