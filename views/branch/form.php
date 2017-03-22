@@ -25,7 +25,7 @@
               <div class="form-group">
                 <label>City</label>
                 <input required type="text" name="i_city" class="form-control" placeholder="Masukkan kota..." value="<?= $row->branch_city ?>"/>
-              </div>
+              </div>  
               <div class="form-group">
                 <label>Description</label>
                 <textarea name="i_desc" class="form-control" rows="5"><?= $row->branch_desc ?></textarea>
