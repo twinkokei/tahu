@@ -6,7 +6,7 @@
     <div class="col-md-12">
     <!-- general form elements disabled -->
       <div class="title_page"> <?= $title ?></div>
-      <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form" novalidate>
+      <!-- <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form" novalidate> -->
         <div class="box box-cokelat">
           <div class="box-body">
             <div class="col-md-12">
