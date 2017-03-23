@@ -62,7 +62,7 @@ Edit Berhasil
             <div class="img_frame">
               <center>
                 <?php $gambar = ($row->office_img) ? $row->office_img : "default.jpg"; ?>
-                <img src="<?= "../img/office/".$gambar ?>" id="output_1" style="max-width:100%;max-heigth:250px;"/>
+                <img src="<?= "../img/office/".$gambar ?>" id="output_1" style="max-width:100%; max-height:250px;"/>
               </center>
             </div>
           </div>
