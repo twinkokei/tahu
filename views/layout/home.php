@@ -45,86 +45,123 @@
                 <!-- Main content -->
 <section class="content">
     <!-- Small boxes (Stat box) -->
-<div id="container" style="height: 400px; min-width: 310px"></div>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 </section><!-- /.content -->
 <script type="text/javascript">
-  $(document).ready(function() {
-    var seriesOptions = [],
-    seriesCounter = 0,
-    names = ['Penjualan', 'Pembelian'];
-    journals = [1,2];
+var series_chart = [];
 
-/**
- * Create the chart when all data is loaded
- * @returns {undefined}
- */
-function createChart() {
+$(document).ready(function(){
 
-    Highcharts.stockChart('container', {
+  var utc_date = [];
+  var normal_date = [];
+  var date   = [];
+  var date_1 = [];
+  var date_2 = [];
+  var date_3 = [];
+  var date_utc1 = [];
+  var date_utc2 = '';
 
-        rangeSelector: {
-            selected: 4
-        },
+  var aa_date = '';
+  var pembelian = [];
+  var penjualan = [];
+  var date_parse_to_hc_pembelian = [];
+  var date_parse_to_hc_penjualan = [];
+  var data_hc = '';
 
-        yAxis: {
-            labels: {
-                formatter: function () {
-                    return (this.value > 0 ? ' + ' : '') + this.value + '%';
-                }
-            },
-            plotLines: [{
-                value: 0,
-                width: 2,
-                color: 'silver'
-            }]
-        },
+  var date_parse_to_hc_pembelian_ = [];
+  var date_parse_to_hc_penjualan_ = [];
 
-        plotOptions: {
-            series: {
-                compare: 'percent',
-                showInNavigator: true
-            }
-        },
+  var pembelian_ = '';
 
-        tooltip: {
-            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
-            valueDecimals: 2,
-            split: true
-        },
 
-        series: seriesOptions
+  function get_val_chart()
+  {
+    $.ajax({
+      dataType  : "json",
+      data      : "get",
+      url       : "home.php?page=Highcharts",
+      success   : function(data){
+
+        $.each(data, function(index, value){
+
+          pembelian = value.journal_credit;
+          penjualan = value.journal_debit;
+
+          aa_date   = value.journal_date;
+          date      = aa_date.split("-");
+
+          date_parse_to_hc_pembelian = [Date.UTC(date[0], date[1], date[2]), parseInt(pembelian)];
+          date_parse_to_hc_pembelian_.push(date_parse_to_hc_pembelian);
+
+          date_parse_to_hc_penjualan = [Date.UTC(date[0], date[1], date[2]), parseInt(penjualan)];
+          date_parse_to_hc_penjualan_.push(date_parse_to_hc_penjualan);
+
+        });
+
+        Highcharts_(date_parse_to_hc_pembelian_, date_parse_to_hc_penjualan_);
+      }
+    });
+
+  }
+
+  get_val_chart();
+
+
+function Highcharts_(pembelian, penjualan)
+{
+  // console.log(data);
+
+  Highcharts.chart('container', {
+      chart: {
+          type: 'spline'
+      },
+      title: {
+          text: 'Snow depth at Vikjafjellet, Norway'
+      },
+      subtitle: {
+          text: 'Irregular time data in Highcharts JS'
+      },
+      xAxis: {
+          type: 'datetime',
+          dateTimeLabelFormats: { // don't display the dummy year
+              month: '%e. %b',
+              year: '%b'
+          },
+          title: {
+              text: 'Date'
+          }
+      },
+      yAxis: {
+          title: {
+              text: 'Snow depth (m)'
+          },
+          min: 0
+      },
+      tooltip: {
+          headerFormat: '<b>{series.name}</b><br>',
+          pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+      },
+
+      plotOptions: {
+          spline: {
+              marker: {
+                  enabled: true
+              }
+          }
+      },
+
+      series: [{
+          name: 'Pembelian',
+          data: pembelian
+      }, {
+          name: 'Penjualan',
+          data: penjualan
+      }]
+
+      // series:[]
     });
 }
 
-
-
-$.each(names, function (i, name) {
-
-    $.getJSON('home.php?page=Highcharts&journal_types='+journals,    function (data) {
-
-
-      // console.log(data);
-        if (data.journal_type_id = 1) {
-            seriesOptions[i] = {
-              name: name,
-              data: data
-          };
-        }
-        // seriesOptions[i] = {
-        //     name: name,
-        //     data: data
-        // };
-
-        console.log(seriesOptions[i]);
-
-        // As we're loading the data asynchronously, we don't know what order it will arrive. So
-        // we keep a counter and create the chart when all the data is loaded.
-        // seriesCounter += 1;
-
-        // if (seriesCounter === names.length) {
-        //     createChart();
-        // }
-    });
+  // console.log(series_chart);
 });
-  });
 </script>

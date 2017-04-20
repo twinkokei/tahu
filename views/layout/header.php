@@ -50,6 +50,10 @@ if(!$_SESSION['login']){
     <!-- <link type="text/css" rel="stylesheet" href="../assets/bootstrap-colorpicker-master/dist/css/bootstrap-colorpicker.min.css"> -->
     <!-- heightchart -->
     <link rel="stylesheet" type="text/css" href="../assets/ea/code/css/highcharts.css" />
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
     <script src="../assets/jquery-3.min.js"></script>
     <script src="../js/responsive/jquery-1.12.4.js"></script>
     <!-- chart -->
@@ -247,7 +251,7 @@ if(!$_SESSION['login']){
             style="height:40px !important; padding-top:10px !important">Profile</a>
             </div>
               <div class="pull-right">
-                  <a href="logout.php" class="btn btn-default btn-flat" style="height:40px !important; padding-top:10px 
+                  <a href="logout.php" class="btn btn-default btn-flat" style="height:40px !important; padding-top:10px
                   !important" id="logout">Sign out</a>
               </div>
             </li>

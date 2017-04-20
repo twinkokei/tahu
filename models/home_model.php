@@ -1,10 +1,10 @@
 <?php
 
-function select_journals($id_1, $id_2)
+function select_journal()
 {
-	$query = mysql_query("select a.* from journals a 
-						  where journal_type_id = '$id_1' or journal_type_id = '$id_2'");
-	return $query; 
-}	
+	$query = mysql_query("SELECT a.*, DATE(a.journal_date) as s_journal_date, SUM(a.journal_debit) AS penjualan, SUM(a.journal_credit) AS pembelian FROM journals a
+												GROUP BY DATE(a.journal_date)");
+	return $query;
+}
 
 ?>

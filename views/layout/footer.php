@@ -16,8 +16,9 @@
 <!-- <script src="../js/jquery-ui.js" type="text/javascript"></script> -->
 
 
-<script src="https://code.highcharts.com/stock/highstock.js"></script>
-
+<!-- <script src="../assets/ea/code/modules/exporting.js" type="text/javascript"></script> -->
+<!-- <script src="../assets/ea/code/modules/exporting.js" type="text/javascript"></script> -->
+<!-- E:\penting\htdocs\tahu\assets\ea\code\modules\exporting.js -->
 <!-- Bootstrap -->
 <script src="../js/bootstrap.min.js" type="text/javascript"></script>
 <!-- DATA TABES SCRIPT -->
