@@ -52,7 +52,7 @@ Edit Berhasil
 							</div>
 							<div class="form-group">
 								<label>No Telp</label>
-								<input required type="text" name="i_telp" id="i_telp" class="form-control" placeholder="Masukkan nomor telepon..."
+								<input required type="number" name="i_telp" id="i_telp" class="form-control" placeholder="Masukkan nomor telepon..."
 								value="<?= $row->office_phone?>"/>
 							</div>
 							<div class="form-group">

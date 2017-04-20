@@ -6,7 +6,7 @@
     <div class="col-md-12">
     <!-- general form elements disabled -->
       <div class="title_page"> <?= $title ?></div>
-      <!-- <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form" novalidate> -->
+      <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form" novalidate>
         <div class="box box-cokelat">
           <div class="box-body">
             <div class="col-md-12">
@@ -16,7 +16,7 @@
               </div>
               <div class="form-group">
                 <label>Phone</label>
-                <input required type="text" name="i_phone" class="form-control" placeholder="Masukkan telepon..." value="<?= $row->branch_phone ?>"/>
+                <input required type="number" name="i_phone" class="form-control" placeholder="Masukkan telepon..." value="<?= $row->branch_phone ?>"/>
               </div>
               <div class="form-group">
                 <label>Address</label>
@@ -25,10 +25,19 @@
               <div class="form-group">
                 <label>City</label>
                 <input required type="text" name="i_city" class="form-control" placeholder="Masukkan kota..." value="<?= $row->branch_city ?>"/>
-              </div>  
+              </div>
               <div class="form-group">
                 <label>Description</label>
                 <textarea name="i_desc" class="form-control" rows="5"><?= $row->branch_desc ?></textarea>
+              </div>
+              <div class="form-group">
+                <label>Gambar </label>
+                <?php
+                if($id){ $gambar = ($row->branch_img) ? "../img/branch/".$row->branch_img : "../img/img_not_found.png"; ?>
+                <br />
+                <img src="<?= $gambar ?>" style="max-width:100%;"/>
+                <?php } ?>
+                <input type="file" name="i_img" id="i_img" />
               </div>
             </div>
           <div style="clear:both;"></div>

@@ -47,7 +47,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-phone"></i>
                   </div>
-                  <input required class="form-control" type="text" name="i_phone" placeholder="Enter phone ..." value="<?= $row->user_phone?>">
+                  <input required class="form-control" type="number" name="i_phone" placeholder="Enter phone ..." value="<?= $row->user_phone?>">
                 </div>
               </div>
               <div class="form-group">
@@ -73,7 +73,7 @@
                   ?>
                     <img src="<?= "../img/user/".$row->user_img ?>" style="width:100%;"/>
                     <?}?>
-                    <img id="user_img" style="width:100%;padding: 10px;"/>
+                    <img id="user_img" style="width:100%;padding: 5px;"/>
                     <input type="file" accept="image/*" name="i_img" onchange="loadFile(event)">
                 <?php
                  } ?>
@@ -82,7 +82,7 @@
             <div style="clear:both;"></div>
           </div><!-- /.box-body -->
           <div class="box-footer">
-            <input class="btn btn-success" type="submit" value="Simpan"/>
+            <input class="btn btn-primary" type="submit" value="Simpan"/>
           </div>
         </div><!-- /.box -->
       </form>

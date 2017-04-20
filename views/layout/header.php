@@ -47,41 +47,42 @@ if(!$_SESSION['login']){
     <link href="../css/export/buttons.dataTables.min.css" rel="stylesheet">
     <link href="../css/responsive/jquery-ui.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/style.css">
-    <link type="text/css" rel="stylesheet" href="../assets/bootstrap-colorpicker-master/dist/css/bootstrap-colorpicker.min.css">
-
+    <!-- <link type="text/css" rel="stylesheet" href="../assets/bootstrap-colorpicker-master/dist/css/bootstrap-colorpicker.min.css"> -->
+    <!-- heightchart -->
+    <link rel="stylesheet" type="text/css" href="../assets/ea/code/css/highcharts.css" />
     <script src="../assets/jquery-3.min.js"></script>
     <script src="../js/responsive/jquery-1.12.4.js"></script>
     <!-- chart -->
-    <script language="javascript" src="../js/chartjs/Chart.min.js"></script>
     <style media="screen">
       .img-logo{
-        max-width: 230px;
-        max-height: 50px;
+        width: 250px;
+        max-height: 55px;
         background: no-repeat;
       }
-    	.modal-backdrop {
-    		position: fixed;
-    		top: 0;
-    		right: 0;
-    		bottom: 0;
-    		left: 0;
-    		z-index: 2;
-    		background-color: #000;
-    	}
+      .modal-backdrop {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        background-color: #000;
+      }
     </style>
   </head>
 <body class="skin-blue">
   <div style="clear:both;"></div>
-  <header class="header">
+  <header class="header">    <!-- <nav class="navbar navbar-static-top" role="navigation"> -->
     <a href="../index.php" class="logo">
-      <?php $img = $r_office['office_img']  ?>
-      <img src="../img/office/<?= $img?>" class="img-logo" alt="">
+   <center style="margin-top: 12px;"><p class="fa fa-cubes" style="color: #ff470e;"><span style="color: #fff;">TAHU</span></p></center>
+<!--       <?php $img = $r_office['office_img']  ?>
+      <img src="../img/office/<?= $img?>" class="img-logo" alt=""> -->
     </a>
     <nav class="navbar navbar-static-top" role="navigation">
     <!-- Sidebar toggle button-->
     <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
       <span class="sr-only">Toggle navigation</span>
-      <span  style="font-size: 28px;" class="fa fa-sliders" data-toggle="tooltip" data-placement="right" title="hide/show sidebar"></span>
+      <span  style="font-size: 28px;" class="fa fa-sliders"></span>
       <!-- <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span> -->
@@ -246,8 +247,8 @@ if(!$_SESSION['login']){
             style="height:40px !important; padding-top:10px !important">Profile</a>
             </div>
               <div class="pull-right">
-                <a href="javascript:void(0);" class="btn btn-default btn-flat"
-                style="height:40px !important; padding-top:10px !important" onclick="uang_kasir()">Sign out</a>
+                  <a href="logout.php" class="btn btn-default btn-flat" style="height:40px !important; padding-top:10px 
+                  !important" id="logout">Sign out</a>
               </div>
             </li>
           </ul>

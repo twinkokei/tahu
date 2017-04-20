@@ -39,7 +39,7 @@ function add_menu(id) {
         </div><!-- /.box-body -->
           <div class="box-footer">
             <?php if (strpos($permit, "c") !== false){ ?>
-              <input class="btn btn-danger" type="submit" value="Simpan"/>
+              <input class="btn btn-primary" type="submit" value="Simpan"/>
             <?php } ?>
             <a href="<?= $close_button?>" class="btn btn-danger" >Keluar</a>
           </div>

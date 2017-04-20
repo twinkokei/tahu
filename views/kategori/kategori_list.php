@@ -53,7 +53,7 @@
                     <i class="fa fa-pencil"></i>
                   </a>
                   <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['kategori_id']; ?>,'kategori.php?page=delete&id=')"
-                    class="btn btn-default" ><i class="fa fa-trash-o"></i>
+                    class="btn btn-danger" ><i class="fa fa-trash-o"></i>
                   </a>
                 </td>
               </tr>
@@ -61,7 +61,7 @@
             </tbody>
             <tfoot>
               <tr>
-                  <td colspan="3"><a href="<?= $add_button ?>" class="btn btn-danger " >Tambah</a></td>
+                  <td colspan="3"><a href="<?= $add_button ?>" class="btn btn-success ">Tambah</a></td>
               </tr>
           </tfoot>
             </table>

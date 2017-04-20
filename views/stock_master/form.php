@@ -12,11 +12,23 @@
             <div class="col-md-12">
               <div class="form-group">
                   <label>Nama Item</label>
-                  <input type="hidden" name="i_name" id="i_name" value="<?= $id?>">
+                  <input type="hidden" name="item_id" id="item_id" value="<?= $id?>">
                   <input required type="text" name="i_name" class="form-control"
                   placeholder="Masukkan nama item ..." value="<?= $row->item_name ?>"/>
                 </div>
-              <div class="form-group" id="barang_stok">
+              <div class="form-group">
+                <label>Satuan Utama</label>
+                <select id="satuan_utama" name="satuan_utama" size="1" class="selectpicker show-tick form-control" data-live-search="true">
+                <?php
+                while($r_satuan = mysql_fetch_array($q_satuan)){?>
+                      <option value="<?= $r_satuan['satuan_id'] ?>"
+                      <?php if ($row->satuan_utama == $r_satuan['satuan_id']){echo "selected";}?>
+                      ><?= $r_satuan['satuan_name']?> 
+                      </option>
+                <?}?>
+                </select>
+              </div>  
+              <div class="form-group" id="barang_ stok">
                   <label>Kategori Item</label>
                     <select name="i_kategori" id="i_kategori" class="selectpicker show-tick form-control"
                     data-live-search="true"
@@ -44,13 +56,17 @@
                 value="<?= $row->item_hpp_price ?>"/>
               </div>
               <div class="form-group">
-                <label>Harga Jual</label>
-                <input required type="textarea" name="i_price_currency" id="i_price_currency" class="form-control" 
-                placeholder="Masukkan harga ..." value="<?= $row->item_price ?>" onkeyup="number_currency_(this);"/>
-
-                <input required type="hidden" name="i_price" id="i_price" class="form-control" placeholder="Masukkan harga ..."
-                value="<?= $row->item_price ?>"/>
-              </div>
+                  <div style="width:250px;width: 250px;left: 0px;top: 30px;">
+                      <label>Gambar</label>
+                      <?php if($id){
+                      $gambar = ($row->item_img) ? $row->item_img : "default.png"; ?>
+                      <br />
+                      <img src="<?= "../img/menu/".$gambar ?>" id="output_1" style="width:200px;"/>
+                      <?php } ?>
+                      <img id="output" style="width:200px; padding: 10px">
+                    <input type="file" name="i_img" id="i_img" accept="image/*"  onchange="loadFile(event)"/>
+                  </div>
+                </div>
           <div style="clear:both;"></div>
           </div><!-- /.box-body -->
           <div class="box-footer">
@@ -64,6 +80,7 @@
       </form>
     </div><!--/.col (right) -->
   </div>   <!-- /.row -->
+  <?php if($id){include '../views/stock_master/form_konversi.php';}?>
 </section><!-- /.content -->
 
 <script type="text/javascript">

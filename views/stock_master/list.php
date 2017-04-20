@@ -50,7 +50,6 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
                     <th style="text-align:center;max-width: 100px;"><?= $r_branch['branch_name']?></th>
                   <?}?>
               <th style="text-align:center;max-width: 200px;">Harga Pokok Produksi</th>
-              <th style="text-align:center;max-width: 200px;">Harga Jual</th>
               <th style="text-align:center;width: 100px;">Config</th>
             </tr>
           </thead>
@@ -75,13 +74,13 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
                   </td>         
                  <?}?>
                 <td style="text-align:right;"><?= format_rupiah($row['item_hpp_price'])?></td>
-                <td style="text-align:right;"><?= format_rupiah($row['item_price'])?></td>
+                
                 <td style="text-align:center;">
                   <a href="stock_master.php?page=form&id=<?= $row['item_id']?>" class="btn btn-default" >
                     <i class="fa fa-pencil"></i>
                   </a>
                   <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['item_id']; ?>,'stock_master.php?page=delete&id=')"
-                    class="btn btn-default" ><i class="fa fa-trash-o"></i>
+                    class="btn btn-danger" ><i class="fa fa-trash-o"></i>
                   </a>
                 </td>          
             </tr>
@@ -91,7 +90,7 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
           <tr>
             <td colspan="8">
               <?php if (strpos($permit, 'c') !== false): ?>
-              <a href="<?= $add_button ?>" class="btn btn-danger " >Tambah</a>
+              <a href="<?= $add_button ?>" class="btn btn-success " >Tambah</a>
             <?php endif;?>
             </td>
           </tr>

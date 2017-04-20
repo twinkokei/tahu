@@ -42,7 +42,7 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
             <tr>
               <th width="5%">No</th>
               <th style="text-align:center;">Nama Cabang</th>
-              <th style="text-align:center;">Alamat</th>
+              <th style="text-align:center;">Gambar</th>
               <th style="text-align:center;">Phone</th>
               <th style="text-align:center;">City</th>
               <th style="text-align:center;">Config</th>
@@ -55,7 +55,13 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
           <tr>
             <td><?= $no?></td>
             <td><?= strtoupper($row['branch_name'])?></td>
-            <td><?= $row['branch_address']?></td>
+            <td><img src="<?php
+            if($row['branch_img']){
+            $image = "../img/branch/".$row['branch_img'];
+            }else{
+            $image = "../img/img_not_found.png";
+            }
+            echo $image ?>" height="80" /></td>
             <td><?= $row['branch_phone'] ?></td>
             <td><?= $row['branch_city'] ?></td>
             <td style="text-align:center;">

@@ -8,13 +8,14 @@ function select_detail($date1, $date2, $branch_id,$journal_type_id){
 	if($journal_type_id){
 		$where .= " and b.journal_type_id = '$journal_type_id'";
 	}
-	$query = mysql_query("SELECT a.*, b.journal_type_name
-							from journals a
-							join journal_types b on b.journal_type_id = a.journal_type_id
+	$query = mysql_query("SELECT a.*, b.journal_type_name, c.*
+							FROM journals a
+							LEFT JOIN journal_types b ON b.journal_type_id = a.journal_type_id
+							LEFT JOIN banks c ON c.bank_id = c.bank_id
 							WHERE  journal_date >= '$date1'
 							AND journal_date <= '$date2'
 							$where
-						");
+                        	");
 	return $query;
 }
 

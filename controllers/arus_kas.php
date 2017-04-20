@@ -48,6 +48,7 @@ switch ($page) {
 			$date1 = format_back_date($date[0]);
 			$date2 = format_back_date($date[1]);
 			$query_item = select_detail($date1, $date2, $branch_id,$journal_type_id);
+			// var_dump($date1);
 			include '../views/arus_kas/list_item.php';
 		}
 		get_footer();

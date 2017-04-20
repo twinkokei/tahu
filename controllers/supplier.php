@@ -6,7 +6,7 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Supplier");
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 2;
 $_SESSION['sub_menu_active'] = 20;
 $permit = get_akses_permits($_SESSION['user_type_id'],$_SESSION['sub_menu_active']);
 

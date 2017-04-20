@@ -17,8 +17,11 @@
 
         <script src="assets/jquery-3.min.js"></script>
 <style type="text/css">
-    html, body {
-        background-color: #025670;
+    html{
+        background-image: url("bg.jpg");
+    }
+    body{
+        background-image: url("bg-body.jpg");
     }
     .alert {
         display: none;
@@ -34,9 +37,7 @@
                             <strong>Login</strong>
                     </span>
                 </div>
-            </div>
-            
-            
+            </div>        
             <form id="form_login">
                 <div class="body bg-white">
                     <br>
@@ -47,10 +48,16 @@
                         User login or Password incorrect
                     </div>
                     <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
                         <input style="border:1px solid #eee;" required type="text" name="i_login" class="form-control" placeholder="User Login"/>
                     </div>
+                    </div>
                     <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
                         <input style="border:1px solid #eee;" required type="password" name="i_password" class="form-control" placeholder="Password"/>
+                    </div>
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-info btn-block" style="margin-top:10px;">LOGIN</button>
@@ -84,8 +91,8 @@
             window.location.href = "controllers/home.php";
         }  else {
                   $(".alert").fadeIn(1000, function(){      
-                    $(".alert");
-         });
+                    $(".alert").fadeOut(2000);
+                });
        }
     }
 </script>

@@ -452,20 +452,20 @@ function get_unit_id($id){
 }
 
 // konversi dari satuan konversi ke satuan utama
-function konversi_ke_satuan_utama($item_id, $unit_id_beli,$qty){
+function konversi_ke_satuan_utama($item_id, $satuan_id_beli,$qty){
 	$result = '';
-	$query = mysql_query("SELECT unit_id as result FROM items WHERE item_id = '$item_id'");
+	$query = mysql_query("SELECT satuan_utama as result FROM items WHERE item_id = '$item_id'");
 	$row = mysql_fetch_array($query);
-	$unit_id_utama = $row['result'];
-	if ($unit_id_beli != 0) {
-		$q_konversi = mysql_query("SELECT * FROM unit_konversi WHERE item_id = '$item_id'
-														 AND unit_id = '$unit_id_utama'
-														 AND unit_konversi = '$unit_id_beli'");
+	$satuan_utama = $row['result'];
+	if ($satuan_utama != 0) {
+		$q_konversi = mysql_query("SELECT * FROM konversi_item WHERE item_id = '$item_id'
+														 AND satuan_utama = '$satuan_utama'
+														 AND satuan_konversi = '$satuan_id_beli'");
 		$r_konversi = mysql_fetch_array($q_konversi);
-		if ($r_konversi['unit_jml'] > $r_konversi['unit_konversi_jml']) {
-			$qty = $qty * $r_konversi['unit_konversi_jml'];
-		} elseif ($r_konversi['unit_jml'] < $r_konversi['unit_konversi_jml']) {
-			$qty = $qty / $r_konversi['unit_konversi_jml'];
+		if ($r_konversi['jumlah'] > $r_konversi['jumlah_satuan_konversi']) {
+			$qty = $qty * $r_konversi['jumlah_satuan_konversi'];
+		} elseif ($r_konversi['jumlah'] < $r_konversi['jumlah_satuan_konversi']) {
+			$qty = $qty / $r_konversi['jumlah_satuan_konversi'];
 		}
 	}
 	$result = $qty;

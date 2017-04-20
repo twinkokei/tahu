@@ -42,7 +42,7 @@
                   <th>Nomor Telepon</th>
                   <th>Email</th>
                   <th>Alamat</th>
-                  <th>Config</th>
+                  <th style="text-align: center;">Config</th>
                 </tr>
               </thead>
             <tbody>

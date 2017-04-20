@@ -6,7 +6,7 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucwords("Cabang");
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 2;
 $_SESSION['sub_menu_active'] = 9;
 $permit = get_akses_permits($_SESSION['user_type_id'],$_SESSION['sub_menu_active']);
 switch ($page) {
@@ -40,6 +40,7 @@ switch ($page) {
 			$row->branch_phone = false;
 			$row->branch_city = false;
 			$row->branch_desc = false;
+			$row->branch_img = false;
 
 			$action = "branch.php?page=save";
 		}
@@ -58,18 +59,36 @@ switch ($page) {
 		$i_city = get_isset($i_city);
 		$i_desc = get_isset($i_desc);
 
+		$path = "../img/branch/";
+		$i_img_tmp = $_FILES['i_img']['tmp_name'];
+		$i_img = ($_FILES['i_img']['name']) ? $_FILES['i_img']['name'] : "";
+		$i_img = str_replace(" ","",$i_img);
+
+		$date = time();
+
+		if($i_img){
+			$image = $date."_".$i_img;
+		}else{
+			$image = "";
+		}
+
 		$data = "'',
 					'$i_name',
+					'".$image."',
+					'$i_desc',
 					'$i_address',
 					'$i_phone',
-					'$i_city',
-					'$i_desc'
+					'$i_city'
 			";
 
-			//echo $data;
+			echo $data;
 
 		create($data);
-		// var_dump($_FILES);
+
+		if($i_img){
+			move_uploaded_file($i_img_tmp, $path.$image);
+		}
+		var_dump($_FILES);
 		header("Location: branch.php?page=list&did=1");
 
 
@@ -86,20 +105,68 @@ switch ($page) {
 		$i_city = get_isset($i_city);
 		$i_desc = get_isset($i_desc);
 
-		$data = "branch_name = '$i_name',
-				branch_address = '$i_address',
-				branch_phone = '$i_phone',
-				branch_city = '$i_city',
-				branch_desc = '$i_desc'
-				";
+		$path = "../img/branch/";
+		$i_img_tmp = $_FILES['i_img']['tmp_name'];
+		$i_img = ($_FILES['i_img']['name']) ? $_FILES['i_img']['name'] : "";
+		$i_img = str_replace(" ","",$i_img);
+
+		$date = time();
+
+		echo $i_phone;
+
+				if($i_img){
+
+				$image = $date."_".$i_img;
+
+				if(move_uploaded_file($i_img_tmp, $path.$image)){
+					$get_img_old = get_img_old($id);
+					if($get_img_old){
+						if(file_exists($path.$get_img_old)){
+							unlink("../img/branch/" .$path.$get_img_old);
+						}
+					}
+
+					$data = "branch_name = '$i_name',
+							branch_img = '$image',
+							branch_desc = '$i_desc',
+							branch_address = '$i_address',
+							branch_phone = '$i_phone',
+							branch_city = '$i_city'
+
+					";
+				}
+
+
+			}else{
+				$data = "branch_name = '$i_name',
+							branch_desc = '$i_desc',
+							branch_address = '$i_address',
+							branch_phone = '$i_phone',
+							branch_city = '$i_city'
+					";
+			}
 
 		update($data, $id);
-		header('Location: branch.php?page=list&did=2');
+
+			header('Location: branch.php?page=list&did=2');
+
+
+
 	break;
 
 	case 'delete':
 
 		$id = get_isset($_GET['id']);
+
+		$path = "../img/branch/";
+
+		$get_img_old = get_img_old($id);
+					if($get_img_old){
+						if(file_exists($path.$get_img_old)){
+							unlink("../img/branch/" .$path.$get_img_old);
+						}
+					}
+
 
 		delete($id);
 

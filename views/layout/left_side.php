@@ -1,4 +1,4 @@
-<aside class="left-side sidebar-offcanvas" style="min-height: 649px;padding-top: 0px;">
+<aside class="left-side sidebar-offcanvas" style="min-height: 649px;padding-top: 0px; width: 250px">
 <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar" style="margin-top: 0px;">
      <!-- Sidebar user panel -->
