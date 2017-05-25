@@ -28,6 +28,7 @@ function remove_currency(num){
   return str;
 }
 
+
 function remove_rupiah(num){
   var str = num.toString().replace("Rp. ", "");
   return str;

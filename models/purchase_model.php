@@ -55,14 +55,14 @@ function create($data){
 }
 
 
-function create_journal($data_id, $data_url, $journal_type_id, $journal_credit, $user_id, $branch_id){
+function create_journal($i_code, $data_url, $journal_type_id, $i_total, $user_id, $branch_id){
 	mysql_query("insert into journals values(
 				'',
 				'$journal_type_id',
-				'$data_id',
+				'$i_code',
 				'$data_url',
 				'0',
-				'$journal_credit',
+				'$i_total',
 				'0',
 				'0',
 				'',

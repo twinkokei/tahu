@@ -43,10 +43,11 @@
               }?>
               </tbody>
                 <tfoot>
-               <tr>
-                <td><button type="button" class="btn btn-success" onclick="select_satuan()">Tambah</button></td>
-              </tr>                                              
-                  
+                  <tr>
+                    <td colspan="8">
+                      <button type="button" class="btn btn-success" onclick="select_satuan()">Tambah</button>
+                    </td>
+                  </tr>   
                 </tfoot>
            </table>
 

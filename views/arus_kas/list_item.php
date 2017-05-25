@@ -10,16 +10,16 @@
           <thead>
             <tr>
               <th style="width:2%;">No</th>
-              <th style="max-width: 100px;">Tanggal</th>
-              <th style="max-width: 100px; width:5%;">Tipe Jurnal</th>
-              <th style="max-width: 150px;">Id Transaksi</th>
+              <th style="max-width: 10px;">Tanggal</th>
+              <th style="max-width: 10px; width:5%;">Tipe Jurnal</th>
+              <th style="max-width: 10px;">Id Transaksi</th>
               <th style="max-width: 100px;">Debit</th>
               <th style="max-width: 100px;">Kredit</th>
               <th style="max-width: 100px;">Piutang</th>
               <th style="max-width: 100px;">Hutang</th>
-              <th style="max-width: 100px;">Bank Kita</th>
-              <th style="max-width: 150px;">No. Rek</th>
-              <th style="max-width: 100px;">Bank Client</th>
+              <th style="max-width: 10px;">Bank Kita</th>
+              <th style="max-width: 10px;">No. Rek</th>
+              <th style="max-width: 10px;">Bank Client</th>
               <th style="max-width: 150px;">No. Rek</th>
               <th style="max-width: 100px;">Cabang</th>
             </tr>
@@ -36,7 +36,7 @@
               <td><?= $no_item ?></td>
               <td><?= format_date($row_item['journal_date']); ?></td>
               <td><?= $row_item['journal_type_name'] ?></td>
-              <td><?= $row_item['data_id'] ?></td>
+              <td><?= $row_item['code'] ?></td>
               <td><?= tool_format_number($row_item['journal_debit'])?></td>
               <td><?= tool_format_number($row_item['journal_credit'])?></td>
               <td><?= tool_format_number($row_item['journal_piutang'])?></td>

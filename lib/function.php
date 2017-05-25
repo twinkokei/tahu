@@ -1,8 +1,8 @@
 <?php
-$s_cabang = $_SESSION['branch_id'];
+// $s_cabang = $_SESSION['branch_id'];
 
 function create_config($table, $data){
-	mysql_query("insert into $table values(".$data.")");
+	mysql_query("insert int	o $table values(".$data.")");
 	return mysql_insert_id();
 }
 
@@ -469,6 +469,28 @@ function konversi_ke_satuan_utama($item_id, $satuan_id_beli,$qty){
 		}
 	}
 	$result = $qty;
+	return $result;
+}
+
+// menu
+function konversi_ke_satuan_utama2($i_menu_id, $satuan_id, $i_qty){
+	$result = '';
+	$query = mysql_query("SELECT menu_satuan as result FROM menus WHERE menu_id = '$i_menu_id'");
+	$row = mysql_fetch_array($query);
+	$satuan_utama = $row['result'];
+	// echo $satuan_utama;
+	if ($satuan_utama != null) {
+		$q_konversi = mysql_query("SELECT * FROM konversi_menu WHERE menu_id = '$i_menu_id'
+														 AND satuan_utama = '$satuan_utama'
+														 AND satuan_konversi = '$satuan_id'");
+		$r_konversi = mysql_fetch_array($q_konversi);
+		if ($r_konversi['jumlah'] > $r_konversi['jumlah_satuan_konversi']) {
+			$i_qty = $i_qty * $r_konversi['jumlah_satuan_konversi'];
+		} elseif ($r_konversi['jumlah'] < $r_konversi['jumlah_satuan_konversi']) {
+			$i_qty = $i_qty / $r_konversi['jumlah_satuan_konversi'];
+		}
+	}
+	$result = $i_qty;
 	return $result;
 }
 

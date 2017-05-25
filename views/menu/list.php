@@ -57,7 +57,7 @@
                                             <tr>
                                             <th width="5%">No</th>
                                                 <th>Nama Menu</th>
-                                                <th>Kategori Menu</th>
+                         
                                                   <th>Harga</th>
                                                    <th>Gambar</th>
                                                    <th style="text-align: center;">Config</th>
@@ -71,8 +71,8 @@
                                             <tr>
                                             <td><?= $no?></td>
                                                <td><?= $row['menu_name']?></td>
-                                               <td><?= $row['kategori_name']?></td>
-                                                <td><?= format_rupiah($row['menu_price'])?></td>
+                                  
+                                                <td style="text-align: right;"><?= format_rupiah($row['menu_price'])?></td>
                                                 <?php
 													$gambar = ($row['menu_img']) ? $row['menu_img'] : "default.png";
 													?>
@@ -80,7 +80,7 @@
                                               <td style="text-align:center;">
 
                                                     <a href="menu.php?page=form&id=<?= $row['menu_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['menu_id']; ?>,'menu.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['menu_id']; ?>,'menu.php?page=delete&id=')" class="btn btn-danger" ><i class="fa fa-trash-o"></i></a>
 
                                                 </td>
                                             </tr>
@@ -92,7 +92,7 @@
                                         </tbody>
                                           <tfoot>
                                             <tr>
-                                                <td colspan="6"><a href="<?= $add_button ?>" class="btn btn-danger">
+                                                <td colspan="5"><a href="<?= $add_button ?>" class="btn btn-success">
                                                 Tambah</a></td>
                                             </tr>
                                         </tfoot>

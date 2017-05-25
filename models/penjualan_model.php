@@ -10,6 +10,12 @@ function select($where){
 							ORDER BY transaction_id");
 	return $query;
 }
+function select_satuan_name($where_menu_id){
+	$query = mysql_query("SELECT a.satuan_utama, b.satuan_name FROM konversi_menu a 
+						  LEFT JOIN satuan b ON b.satuan_id = a.satuan_utama
+						  $where_menu_id");
+	return $query;
+}
 function select_bank(){
 	$query = mysql_query("select * from banks order by bank_id");
 
@@ -17,8 +23,9 @@ function select_bank(){
 }
 
 function select_keranjang(){
-	$query = mysql_query("SELECT a.* , b.menu_name FROM keranjang a
+	$query = mysql_query("SELECT a.* , b.menu_name, c.satuan_name FROM keranjang a
 						LEFT JOIN menus b ON b.menu_id = a.menu_id
+						LEFT JOIN satuan_menu c on c.satuan_id = a.satuan
 						ORDER BY keranjang_id");
 	return $query;
 }
@@ -38,6 +45,12 @@ function select_branch(){
 	return $query;
 }
 
+function select_menu_konversi($id){
+	$query = mysql_query("SELECT a.*, b.satuan_id, b.satuan_name FROM konversi_menu a
+				LEFT JOIN satuan_menu b ON b.satuan_id = a.satuan_konversi
+				where a.menu_id = '$id'");
+	return $query;
+}
 
 function read_id($id){
 	$query = mysql_query("select a.*,b.member_name
@@ -61,8 +74,8 @@ function create_journal($data_id, $data_url, $journal_type_id, $journal_credit, 
 				'$journal_type_id',
 				'$data_id',
 				'$data_url',
-				'0',
 				'$journal_credit',
+				'0',
 				'0',
 				'0',
 				'',
@@ -77,6 +90,7 @@ function create_journal($data_id, $data_url, $journal_type_id, $journal_credit, 
 	)");
 }
 
+
 function update($data, $id){
 	mysql_query("update purchases set ".$data." where purchase_id = '$id'");
 }
@@ -86,7 +100,7 @@ function delete($id){
 }
 
 function grand_total(){
-	$query = mysql_query("SELECT SUM(qty) AS grand_qty ,SUM(total) AS grand_total
+	$query = mysql_query("SELECT SUM(qty) AS grand_qty ,SUM(total) AS grand_total 	
 						FROM keranjang");
 	return $query;
 }

@@ -83,9 +83,10 @@ printer_close($printer);
 	  	<td align="right"><?= $row['member_name']?></td>
 	  </tr>
 	  <?php
-	  $query1 = mysql_query("SELECT a.*, b.menu_name
+	  $query1 = mysql_query("SELECT a.*, b.menu_name, c.satuan_name
 	                		FROM transaction_details a
 	                		LEFT JOIN menus b ON b.menu_id = a.menu_id
+	                		LEFT JOIN satuan_menu c ON c.satuan_id = a.satuan_id
 	                		WHERE transaction_id = '$transaction_id'");
 	  							while($row_item = mysql_fetch_array($query1)){
 	  								$count = count($row_item);
@@ -93,6 +94,10 @@ printer_close($printer);
 	  <tr>
 	  	<td>Nama Menu :</td>
 	    <td align="right"><?= $row_item['menu_name'] ?></td>
+	  </tr>
+	  <tr>
+	  	<td>Satuan :</td>
+	    <td align="right"><?= $row_item['satuan_name'] ?></td>
 	  </tr>
 	  <tr>
 	  	<td>Qty :</td>
@@ -115,7 +120,7 @@ printer_close($printer);
 	  </tr>
 	</table>
 		<?php $bank = array('Mandiri', 'BCA', 'BRI');?>
-		<?php if($row['payment_method_id'] != 1){?>
+		<?php if($row['payment_method_id'] == 2){?>
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top: 5;font-size:12px;">
   	  <tr>
     	<td>Bank :</td>

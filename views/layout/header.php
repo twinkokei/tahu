@@ -47,12 +47,12 @@ if(!$_SESSION['login']){
     <link href="../css/export/buttons.dataTables.min.css" rel="stylesheet">
     <link href="../css/responsive/jquery-ui.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/style.css">
-    <!-- <link type="text/css" rel="stylesheet" href="../assets/bootstrap-colorpicker-master/dist/css/bootstrap-colorpicker.min.css"> -->
+    <link type="text/css" rel="stylesheet" href="../assets/bootstrap-colorpicker-master/dist/css/bootstrap-colorpicker.min.css">
     <!-- heightchart -->
     <link rel="stylesheet" type="text/css" href="../assets/ea/code/css/highcharts.css" />
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="../assets/highcharts.js"></script>
+    <script src="../assets/exporting.js"></script>
 
     <script src="../assets/jquery-3.min.js"></script>
     <script src="../js/responsive/jquery-1.12.4.js"></script>
@@ -78,7 +78,11 @@ if(!$_SESSION['login']){
   <div style="clear:both;"></div>
   <header class="header">    <!-- <nav class="navbar navbar-static-top" role="navigation"> -->
     <a href="../index.php" class="logo">
-   <center style="margin-top: 12px;"><p class="fa fa-cubes" style="color: #ff470e;"><span style="color: #fff;">TAHU</span></p></center>
+     <center style="margin-top: 12px;">
+       <span class="fa fa-cubes" style="color: yellow;">
+       <span style="color: #fff;">TAHU</span>
+       <span class="fa fa-cubes" style="color: yellow;"></span>
+     </center>
 <!--       <?php $img = $r_office['office_img']  ?>
       <img src="../img/office/<?= $img?>" class="img-logo" alt=""> -->
     </a>

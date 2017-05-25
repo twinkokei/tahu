@@ -37,7 +37,7 @@ switch ($page) {
 		$r_cabang = mysql_fetch_array($q_cabang);
 		// echo $r_cabang['office_name'];
 		// echo $transaction_id;
-	    include '../views/print/print_penjualan.php';
+	   include '../views/print/print_penjualan.php';
   	break;
 
   }

@@ -1,12 +1,12 @@
 <?php 
 
 function select_pembelian_bydate($date1, $date2){
-	 $query = mysql_query("SELECT a.*, b.journal_type_name, g.bank_name AS bank_kita, h.bank_name AS bank_client,
+     $query = mysql_query("SELECT a.*, b.journal_type_name, g.bank_name AS bank_kita, h.bank_name AS bank_client,
                         CASE a.journal_type_id
-                        	WHEN a.journal_type_id=1 THEN e.member_name
-                        	WHEN a.journal_type_id=2 THEN f.supplier_name
-                        	WHEN a.journal_type_id=5 THEN f.supplier_name
-                        	WHEN a.journal_type_id=6 THEN e.member_name
+                            WHEN a.journal_type_id=1 THEN e.member_name
+                            WHEN a.journal_type_id=2 THEN f.supplier_name
+                            WHEN a.journal_type_id=5 THEN f.supplier_name
+                            WHEN a.journal_type_id=6 THEN e.member_name
                         END AS CLIENT, i.branch_name, j.user_name, k.*
                         FROM journals a
                         LEFT JOIN journal_types b ON b.journal_type_id = a.journal_type_id
@@ -19,9 +19,9 @@ function select_pembelian_bydate($date1, $date2){
                         LEFT JOIN branches i ON i.branch_id = a.branch_id
                         LEFT JOIN users j ON j.user_id = a.user_id
                         left join banks k on k.bank_id = k.bank_id
-						 WHERE a.purchase_date >= '$date1' AND a.purchase_date <= '$date2'");
-	return $query;		
-	}
+                         WHERE a.purchase_date >= '$date1' AND a.purchase_date <= '$date2'");
+    return $query;      
+    }
 
 function select($transaction_id){
         $query = mysql_query("SELECT a.*, b.*, c.menu_name, d.member_name

@@ -1,12 +1,13 @@
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title" style="text-align: center;">Recipe : <?=$menu_name?></h4>
 </div>
 <form action="<?= $action?>" method="post">
 	<div class="modal-body">
 		<div class="form-group">
 			<input type="hidden" name="menu_recipe_id" id="menu_recipe_id" value="<?= $recipe_id ?>">
 			<input type="hidden" name="menu_id" id="menu_id" value="<?= $menu_id ?>">
-			<label>Nama Item</label>
+			<label>Nama Bahan</label>
 			<select class="selectpicker form-control" name="item_id" id="item_id" value="0">
 				<option value="0"></option>
 				<?php 
@@ -19,7 +20,20 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label>Jumlah Item</label>
+			<label>Satuan</label>
+			<select class="selectpicker form-control" name="satuan_id" id="satuan_id" value="0">
+				<option value="0"></option>
+				<?php 
+				while ($r_satuan = mysql_fetch_array($q_satuan)) {?>
+					<option value="<?= $r_satuan['satuan_id'] ?>"
+					<?php if ($row->satuan_id == $r_satuan['satuan_id']){ ?> selected="selected"<?php } ?>>
+					<?= $r_satuan['satuan_name']?>
+					</option>
+				<?php }?>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Jumlah Bahan</label>
 			<input type="textarea" name="item_qty_currency" id="item_qty_currency" class="form-control" 
 			value="<?= $row->item_qty?>" onkeyup="number_currency_(this);" placeholder="Masukkan jumlah item ...">
 

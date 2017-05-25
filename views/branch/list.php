@@ -43,8 +43,8 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
               <th width="5%">No</th>
               <th style="text-align:center;">Nama Cabang</th>
               <th style="text-align:center;">Gambar</th>
-              <th style="text-align:center;">Phone</th>
-              <th style="text-align:center;">City</th>
+              <th style="text-align:center;">Telepon</th>
+              <th style="text-align:center;">Kota</th>
               <th style="text-align:center;">Config</th>
             </tr>
           </thead>
@@ -71,7 +71,7 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
               <?php if($no != 1){?>
               <?php if (strpos($permit, 'd') !== false){ ?>
               <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['branch_id']; ?>,'branch.php?page=delete&id=')"
-                class="btn btn-default" >
+                class="btn btn-danger" >
                 <i class="fa fa-trash-o"></i>
               </a>
                 <?php }; ?>
@@ -84,7 +84,7 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
           <tr>
             <td colspan="6">
               <?php if (strpos($permit, 'c') !== false): ?>
-              <a href="<?= $add_button ?>" class="btn btn-danger " >Tambah</a>
+              <a href="<?= $add_button ?>" class="btn btn-success " >Tambah</a>
             <?php endif;?>
             </td>
           </tr>

@@ -4,10 +4,10 @@ include '../lib/function.php';
 include '../models/stock_master_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
-$title = ucfirst("ITEM STOCK");
+$title = ucfirst("STOK BAHAN");
 
 $_SESSION['menu_active'] = 2;
-$_SESSION['sub_menu_active'] = 10;
+$_SESSION['sub_menu_active'] = 15;
 $cabang = $_SESSION['branch_id'];
 $permit = get_akses_permits($_SESSION['user_type_id'],$_SESSION['sub_menu_active']);
 
@@ -16,7 +16,7 @@ switch ($page) {
 
 		get_header($title);
 		$where = '';
-		$q_all_stock = select_config('items', $where);
+		$q_all_stock = select_stock();
 		$where = '';
 		$r_branch = select_config('branches', $where);
 		$add_button = "stock_master.php?page=form";
@@ -258,4 +258,5 @@ switch ($page) {
 		break;
 
 }
+
 ?>

@@ -1,8 +1,14 @@
 <div class="modal-header">
 <?php 
   $row = mysql_fetch_array($q_menu) ?>
-  <label><?= $row['menu_name']?></label><br>
-  <label>QTY : <?= $row['menu_stock_qty']?></label>
+  <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <tr>
+    <td>
+      <h4 class="modal-title"><?= $row['menu_name']?></h4>
+    </td>
+    <td class="modal-title">Jumlah : <?= $row['menu_stock_qty']?>
+    </td>
+  </tr>
 </div>
 <div class="modal-body">
   <table id="example3" class="table table-bordered table-striped">
@@ -10,7 +16,7 @@
       <tr>
         <th width="5%">No</th>
         <th>Nama item</th>
-        <th>Qty item</th>
+        <th>Qty item/1 qty menu</th>
         <th>Total Kebutuhan</th>
       </tr>
     </thead>
@@ -42,5 +48,5 @@
       Hapus
     </button>
   <?php endif; ?> -->
-  <button type="button" class="btn btn-primary" data-dismiss="modal">Keluar</button>
+  <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
 </div>

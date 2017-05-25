@@ -4,10 +4,10 @@ include '../lib/function.php';
 include '../models/satuan_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
-$title = ucfirst("Stock Satuan");
+$title = ucfirst("Satuan Bahan");
 
 $_SESSION['menu_active'] = 2;
-$_SESSION['sub_menu_active'] = 45;
+$_SESSION['sub_menu_active'] = 16;
 $permit = get_akses_permits($_SESSION['user_type_id'],$_SESSION['sub_menu_active']);
 switch ($page) {
   case 'list':

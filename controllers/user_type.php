@@ -6,8 +6,8 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("user type");
 
-$_SESSION['menu_active'] = 7;
-$_SESSION['sub_menu_active'] = 33;
+$_SESSION['menu_active'] = 8;
+$_SESSION['sub_menu_active'] = 34;
 $permit = get_akses_permits($_SESSION['user_type_id'],$_SESSION['sub_menu_active']);
 switch ($page) {
 	case 'list':

@@ -32,6 +32,7 @@
 </div>
 <div class="modal-footer">
   <?php if (strpos($permit, 'c') !== false || strpos($permit, 'u') !== false){ ?>
+   <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
     <input class="btn btn-primary" type="submit" value="Simpan"/>
   <?php } ?>
 </div>

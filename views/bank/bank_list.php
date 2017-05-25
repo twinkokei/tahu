@@ -51,7 +51,7 @@
               <td><?= $row['bank_name']?></td>
               <td style="text-align:center;">
               <a href="bank.php?page=form&id=<?= $row['bank_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-              <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['bank_id']; ?>,'bank.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+              <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['bank_id']; ?>,'bank.php?page=delete&id=')" class="btn btn-danger" ><i class="fa fa-trash-o"></i></a>
               </td>
             </tr>
           <?php $no++; } ?>
@@ -61,7 +61,7 @@
             <tr>
               <?php
               if (strpos($permit, 'c') !== false){?>
-                <td colspan="8"><a href="<?= $add_button ?>" class="btn btn-danger " >Tambah</a></td>
+                <td colspan="8"><a href="<?= $add_button ?>" class="btn btn-success " >Tambah</a></td>
               <? }?>
             </tr>
           </tfoot>

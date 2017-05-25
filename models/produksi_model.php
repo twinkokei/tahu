@@ -10,6 +10,15 @@ function select($where){
 							ORDER BY transaction_id");
 	return $query;
 }
+
+function select_satuan_konversi($i_menu_id){
+	$query = mysql_query("SELECT a.satuan_konversi FROM konversi_menu a
+							WHERE a.menu_id = '$i_menu_id'
+							UNION SELECT b.menu_satuan FROM menus b
+							WHERE b.menu_id = '$i_menu_id'");
+	return $query;
+}
+
 function select_bank(){
 	$query = mysql_query("select * from banks order by bank_id");
 
@@ -101,4 +110,33 @@ function grand_total(){
 						FROM keranjang");
 	return $query;
 }
+
+function check_stok($item_id, $item_qty, $branch_id)
+{
+	$result = 0;	
+	$query = mysql_query("select item_stock_qty as result from item_stocks where item_id = '$item_id' and branch_id = '$branch_id'");
+	$row = mysql_fetch_array($query);
+
+
+	if ($row['result']>=$item_qty) {
+		$result  = 1;
+	}
+
+	return $result;
+}
+
+function check_stok_bahan_real($item_id, $branch_id)
+{
+	$result = 0;
+	$query = mysql_query("select item_stock_qty as result from item_stocks where item_id = '$item_id' and branch_id = '$branch_id'");
+	$row = mysql_fetch_array($query);
+
+
+	if ($row['result']) {
+		$result  = $row['result'];
+	}
+
+	return $result;
+}
+
 ?>

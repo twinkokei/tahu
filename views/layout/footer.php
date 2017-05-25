@@ -9,6 +9,7 @@
         ?>
     </body>
 </html>
+
 <!-- jQuery 2.0.2 -->
 <script src="../assets/bootstrap-colorpicker-master/dist/js/bootstrap-colorpicker.min.js"></script>
 <script src="../js/function.js" type="text/javascript"></script>
@@ -58,28 +59,25 @@
 <script src="../js/export/buttons.print.min.js"></script>
  <!-- page script -->
  <?php
-	$http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
-	$fo = str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
-	$fo = explode("/", $fo);
-	if($_SERVER['SERVER_PORT']!='80'){
-	   $port = ":".$_SERVER['SERVER_PORT'];
-	}else{
-	   $port="";
-	}
-
-	$redirbase = $http.$_SERVER['SERVER_NAME'].$port."/".$fo[1];
+  $http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
+  $fo = str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
+  $fo = explode("/", $fo);
+  if($_SERVER['SERVER_PORT']!='80'){
+     $port = ":".$_SERVER['SERVER_PORT'];
+  }else{
+     $port="";
+  }
+  $redirbase = $http.$_SERVER['SERVER_NAME'].$port."/".$fo[1];
  ?>
     <script type="text/javascript">
-
         $(document).ready(function() {
         $('#example1').DataTable( {
             dom: 'Bfrtip',
             buttons: [
-
                 {
                     extend: 'pageLength'
                 }
-			,
+      ,
                 {
                     extend: 'copy'
                 },
@@ -101,7 +99,6 @@
       $('#example2').dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -123,7 +120,6 @@
       $("#example3").dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -145,7 +141,6 @@
     $("#example4").dataTable({
     dom: 'Bfrtip',
     buttons: [
-
         {
             extend: 'pageLength'
         },
@@ -167,7 +162,6 @@
       $("#example5").dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -186,11 +180,9 @@
           [ '10 rows', '25 rows', '50 rows', 'Show all' ]
       ]
   });
-
     $("#example21").dataTable({
     dom: 'Bfrtip',
     buttons: [
-
         {
             extend: 'pageLength'
         },
@@ -209,11 +201,9 @@
         [ '10 rows', '25 rows', '50 rows', 'Show all' ]
     ]
 });
-
       $("#example6").dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -235,7 +225,6 @@
       $("#example7").dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -257,7 +246,6 @@
         $("#example8").dataTable({
         dom: 'Bfrtip',
         buttons: [
-
             {
                 extend: 'pageLength'
             },
@@ -279,7 +267,6 @@
       $("#example9").dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -301,7 +288,6 @@
         $("#example10").dataTable({
         dom: 'Bfrtip',
         buttons: [
-
             {
                 extend: 'pageLength'
             },
@@ -320,11 +306,9 @@
             [ '10 rows', '25 rows', '50 rows', 'Show all' ]
         ]
     });
-
         $("#example11").dataTable({
         dom: 'Bfrtip',
         buttons: [
-
             {
                 extend: 'pageLength'
             },
@@ -343,12 +327,9 @@
             [ '10 rows', '25 rows', '50 rows', 'Show all' ]
         ]
     });
-
       $('#example_scroll').dataTable({
           "scrollX": true
-
       });
-
       $('#example_simple').dataTable({
           "bPaginate": false,
           "bLengthChange": false,
@@ -357,26 +338,19 @@
           "bInfo": false,
           "bAutoWidth": false
       });
-
       $('#example_no_order_by').dataTable({
           "bSort": false
       });
-
       $('#example11').dataTable({
-
           "bFilter": false,
-
       });
-
       $("#example_nopagination1").dataTable({
           "bPaginate": false,
           "bFilter": false
       });
-
       $("#example15").dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -395,12 +369,9 @@
           [ '10 rows', '25 rows', '50 rows', 'Show all' ]
       ]
       });
-
       $('#example_scroll').dataTable({
           "scrollX": true
-
       });
-
       $('#example_simple').dataTable({
           "bPaginate": false,
           "bLengthChange": false,
@@ -409,15 +380,12 @@
           "bInfo": false,
           "bAutoWidth": false
       });
-
       $('#example_no_order_by').dataTable({
           "bSort": false
       });
-
       $("#example16").dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -436,12 +404,9 @@
           [ '10 rows', '25 rows', '50 rows', 'Show all' ]
       ]
       });
-
           $('#example_scroll').dataTable({
               "scrollX": true
-
           });
-
           $('#example_simple').dataTable({
               "bPaginate": false,
               "bLengthChange": false,
@@ -450,16 +415,12 @@
               "bInfo": false,
               "bAutoWidth": false
           });
-
           $('#example_no_order_by').dataTable({
               "bSort": false
           });
-
-
       $("#example17").dataTable({
       dom: 'Bfrtip',
       buttons: [
-
           {
               extend: 'pageLength'
           },
@@ -478,12 +439,9 @@
           [ '10 rows', '25 rows', '50 rows', 'Show all' ]
       ]
       });
-
       $('#example_scroll').dataTable({
           "scrollX": true
-
       });
-
       $('#example_simple').dataTable({
           "bPaginate": false,
           "bLengthChange": false,
@@ -492,15 +450,12 @@
           "bInfo": false,
           "bAutoWidth": false
       });
-
       $('#example_no_order_by').dataTable({
           "bSort": false
       });
-
           $("#example18").dataTable({
           dom: 'Bfrtip',
           buttons: [
-
               {
                   extend: 'pageLength'
               },
@@ -519,12 +474,9 @@
               [ '10 rows', '25 rows', '50 rows', 'Show all' ]
           ]
           });
-
               $('#example_scroll').dataTable({
                   "scrollX": true
-
               });
-
         $('#example_simple').dataTable({
             "bPaginate": false,
             "bLengthChange": false,
@@ -533,17 +485,12 @@
             "bInfo": false,
             "bAutoWidth": false
         });
-
         $('#example_no_order_by').dataTable({
             "bSort": false
         });
-
         $('#example18').dataTable({
-
             "bFilter": false,
-
         });
-
         $("#example_nopagination1").dataTable({
             "bPaginate": false,
             "bFilter": false
@@ -551,7 +498,6 @@
         $("#example19").dataTable({
         dom: 'Bfrtip',
         buttons: [
-
             {
                 extend: 'pageLength'
             },
@@ -570,12 +516,9 @@
             [ '10 rows', '25 rows', '50 rows', 'Show all' ]
         ]
         });
-
             $('#example_scroll').dataTable({
                 "scrollX": true
-
             });
-
             $('#example_simple').dataTable({
                 "bPaginate": false,
                 "bLengthChange": false,
@@ -584,11 +527,9 @@
                 "bInfo": false,
                 "bAutoWidth": false
             });
-
             $('#example_no_order_by').dataTable({
                 "bSort": false
             });
-
             // $('#example19').dataTable({
             //
             //     "bFilter": false,
@@ -599,13 +540,9 @@
             //     "bPaginate": false,
             //     "bFilter": false
             // });
-
-
           $('#example_scroll').dataTable({
               "scrollX": true
-
           });
-
           $('#example_simple').dataTable({
               "bPaginate": false,
               "bLengthChange": false,
@@ -614,12 +551,9 @@
               "bInfo": false,
               "bAutoWidth": false
           });
-
           $('#example_no_order_by').dataTable({
               "bSort": false
           });
-
-
           $("#example_nopagination1").dataTable({
               "bPaginate": false,
               "bFilter": false
@@ -627,7 +561,6 @@
           $("#example20").dataTable({
           dom: 'Bfrtip',
           buttons: [
-
               {
                   extend: 'pageLength'
               },
@@ -649,7 +582,6 @@
           $("#example22").dataTable({
           dom: 'Bfrtip',
           buttons: [
-
               {
                   extend: 'pageLength'
               },
@@ -671,7 +603,6 @@
           $("#example23").dataTable({
           dom: 'Bfrtip',
           buttons: [
-
               {
                   extend: 'pageLength'
               },
@@ -690,11 +621,9 @@
               [ '10 rows', '25 rows', '50 rows', 'Show all' ]
           ]
           });
-
           $("#example24").dataTable({
           dom: 'Bfrtip',
           buttons: [
-
               {
                   extend: 'pageLength'
               },
@@ -716,7 +645,6 @@
           $("#example25").dataTable({
           dom: 'Bfrtip',
           buttons: [
-
               {
                   extend: 'pageLength'
               },
@@ -738,7 +666,6 @@
           $("#example26").dataTable({
           dom: 'Bfrtip',
           buttons: [
-
               {
                   extend: 'pageLength'
               },
@@ -760,7 +687,6 @@
           $("#example27").dataTable({
           dom: 'Bfrtip',
           buttons: [
-
               {
                   extend: 'pageLength'
               },
@@ -782,7 +708,6 @@
         $("#example28").dataTable({
         dom: 'Bfrtip',
         buttons: [
-
             {
                 extend: 'pageLength'
             },
@@ -805,10 +730,8 @@
                 $(function() {
                   $('#new_table').footable();
                 });
-
                 $('.footable').data('limit-navigation', 5);
                 $('.footable').trigger('footable_initialized');
-
                 $('#change-page-size').change(function (e) {
                     //  e.preventcokelat();
                         var pageSize = $(this).val();
@@ -822,7 +745,6 @@
                 $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
                 //Money Euro
                 $("[data-mask]").inputmask();
-
                 /*
                 //iCheck for checkbox and radio inputs
                 $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
@@ -839,11 +761,8 @@
                     checkboxClass: 'icheckbox_flat-red',
                     radioClass: 'iradio_flat-red'
                 });*/
-
                 //Date range picker
-
                 $('#reservation').daterangepicker();
-
                 //Date range picker with time picker
                 $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'YYYY/MM/DD H:mm:ss'});
                 $('#per_tanggal').daterangepicker({
@@ -851,32 +770,22 @@
                     timePickerIncrement: 30,
                     format: 'YYYY/MM/DD'
                   });
-
                 //date picker
                 $('#date_picker1').datepicker({
                     format: 'dd/mm/yyyy'
                 });
-
                 $('#date_picker2').datepicker({
                     format: 'dd/mm/yyyy'
                 });
-
                 $('#date_picker3').datepicker({
                     format: 'dd/mm/yyyy'
                 });
-
                 //Timepicker
                 $(".timepicker").timepicker({
                     showInputs: false
                 });
-
                 $('#i_date_chart').daterangepicker();
-
-
-
             });
-
-
 $.fn.scrollView = function () {
     return this.each(function () {
       $('html, body').animate({
@@ -884,44 +793,32 @@ $.fn.scrollView = function () {
       }, 1000);
     });
   }
-
-
 $('#scroll-link').click(function (event) {
   event.preventDefault();
   $('.header').scrollView();
 });
-
-
 $('#i_cari_checkout').change(function (event) {
   event.preventDefault();
-
    var keyword = document.getElementById("i_cari_checkout").value;
    window.find(keyword);
-
    /*
     $.ajax({
             url: 'transaction.php?page=get_menu&keyword='+keyword,
             type: 'POST',
-			dataType: 'json',
+      dataType: 'json',
             data: { keyword : keyword},
             success: function(data) {
-
-				var menu_id = data.content['menu_id'];
+        var menu_id = data.content['menu_id'];
                 alert("test");
-				console.log("success");
-
+        console.log("success");
             }
         });
    //$('.header').scrollView();
   */
 });
-
   $('#button_search_checkout').change(function (event) {
     event.preventDefault();
-
      var keyword = document.getElementById("i_cari_checkout").value;
      window.find(keyword);
-
-
   });
 </script>

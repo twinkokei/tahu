@@ -1,8 +1,14 @@
+<style type="text/css">
+  a:hover{
+    color:green;
+  }
+</style>
+
 <div class="row">
   <div class="col-xs-12">
     <div class="box">
       <div class="box-body2 table-responsive">
-        <div class="box-header" style="cursor: move;">
+        <div class="box-header">
           <h3 class="box-title"><strong>List Pembelian</strong></h3>
         </div>
         <table id="list_pembelian" class="table table-bordered table-striped">
@@ -15,7 +21,6 @@
               <th>Total</th>
               <th>Supplier</th>
               <th>Cabang</th>
-              <th>lihat Detail</th>
             </tr>
           </thead>
         <tbody>
@@ -25,17 +30,11 @@
             <tr>
               <td><?= $no?></td>
               <td><?= format_date_only($row['purchase_date'])?></td>
-              <td><?= $row['purchase_code']?></td>
+              <td><a  data-toggle="tooltip" data-placement="right" title="Lihat Detail!" onclick="detail_purchase(<?= $row['purchase_code']?>,<?= $row['branch_id']?>)" ><?= $row['purchase_code']?></a></td>
               <td><?= $row['user_name']?></td>
-              <td><?= format_rupiah($row['purchase_total'])?></td>
+              <td style="text-align: right;"><?= format_rupiah($row['purchase_total'])?></td>
               <td><?= $row['supplier_name']?></td>
               <td><?= $row['branch_name']?></td>
-              <td style="text-align:center;">
-                <button type="button" class="btn btn-default"
-                onclick="detail_purchase(<?= $row['purchase_code']?>,<?= $row['branch_id']?>)">
-                  <i class="fa fa-search"></i>
-                </button>
-              </td>
             </tr>
         <? $no++; } ?>
         </tbody>
@@ -96,4 +95,3 @@
     } );
   } );
 </script>
-;

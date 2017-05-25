@@ -37,9 +37,9 @@
               <thead>
                 <tr>
                   <th width="5%">No</th>
-                  <th>Item Name</th>
-                  <th>Jumlah Stock</th>
-                  <th>Harga Item</th>
+                  <th>Nama Bahan</th>
+                  <th>Jumlah Bahan</th>
+                  <th>Harga Bahan</th>
                   <th>Cabang</th>
                   <th style="text-align:center;">Config</th>
                 </tr>
@@ -51,8 +51,8 @@
               <tr>
                 <td><?= $no?></td>
                 <td><?= $row['item_name']?></td>
-                <td><?= $row['item_stock_qty']?></td>
-                <td><?= format_rupiah($row['item_hpp_price'])?></td>
+                <td style="text-align: right;"><?= $row['item_stock_qty']?></td>
+                <td style="text-align: right;"><?= format_rupiah($row['item_hpp_price'])?></td>
                 <td><?= $row['branch_name']?></td>
                 <td style="text-align:center;">
                   <a href="penyesuaian_stock.php?page=form&id=<?= $row['item_id']?>&branch_id=<?= $row['branch_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>

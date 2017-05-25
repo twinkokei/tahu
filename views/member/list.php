@@ -38,7 +38,7 @@
               <thead>
                 <tr>
                   <th width="5%">No</th>
-                  <th>Nama Supplier</th>
+                  <th>Nama Member</th>
                   <th>Nomor Telepon</th>
                   <th>Email</th>
                   <th>Alamat</th>
@@ -57,7 +57,7 @@
                 <td><?= $row['member_address']?></td>
                 <td style="text-align:center;">
                 <a href="member.php?page=form&id=<?= $row['member_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['member_id']; ?>,'member.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+                <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['member_id']; ?>,'member.php?page=delete&id=')" class="btn btn-danger" ><i class="fa fa-trash-o"></i></a>
                 </td>
               </tr>
             <?php
@@ -66,7 +66,7 @@
               <tfoot>
                 <tr>
                   <?php if (strpos($permit, 'c') !== false){ ?>
-                  <td colspan="6"><a href="<?= $add_button ?>" class="btn btn-danger " >Tambah</a></td>
+                  <td colspan="6"><a href="<?= $add_button ?>" class="btn btn-success " >Tambah</a></td>
                   <?php } ?>
                 </tr>
               </tfoot>

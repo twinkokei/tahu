@@ -21,15 +21,25 @@
 	}
 
 
-	function select_partner(){
-		$query = mysql_query("select * from partners order by partner_id");
+	function select_tabel_konversi($id){
+  		$query = mysql_query("SELECT a.* , b.satuan_name , c.satuan_name AS konversi, d.menu_name FROM konversi_menu a
+		                  LEFT JOIN satuan_menu b ON b.satuan_id = a.satuan_utama
+		                  LEFT JOIN satuan_menu c ON c.satuan_id = a.satuan_konversi
+		                  LEFT JOIN menus d ON d.menu_id = a.menu_id
+		                  WHERE a.menu_id = '$id'");
+  		return $query;
+	}
+
+	function select_konversi($where_satuan_yang_sudah_dipilih){
+		$query = mysql_query("SELECT * from satuan_menu $where_satuan_yang_sudah_dipilih");
 		return $query;
 	}
 
 	function select_recipe($menu_id){
-		$query = mysql_query("SELECT a.*, b.item_name
+		$query = mysql_query("SELECT a.*, b.item_name , c.satuan_name
 								FROM menu_recipes a
 								LEFT JOIN items b ON b.item_id = a.item_id
+								LEFT JOIN satuan c on c.satuan_id = a.satuan_id
 								where menu_id = '$menu_id' order by menu_recipe_id");
 		return $query;
 	}

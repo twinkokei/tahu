@@ -17,11 +17,8 @@
 
         <script src="assets/jquery-3.min.js"></script>
 <style type="text/css">
-    html{
-        background-image: url("bg.jpg");
-    }
-    body{
-        background-image: url("bg-body.jpg");
+    html, body {
+        background-color: #025670;
     }
     .alert {
         display: none;
@@ -37,7 +34,9 @@
                             <strong>Login</strong>
                     </span>
                 </div>
-            </div>        
+            </div>
+            
+            
             <form id="form_login">
                 <div class="body bg-white">
                     <br>

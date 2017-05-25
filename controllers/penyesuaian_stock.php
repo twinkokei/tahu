@@ -4,10 +4,10 @@ include '../lib/function.php';
 include '../models/penyesuaian_stock_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
-$title = ucfirst("penyesuaian STOCK");
+$title = ucfirst("penyesuaian Stock");
 
-$_SESSION['menu_active'] = 2;
-$_SESSION['sub_menu_active'] = 11;
+$_SESSION['menu_active'] = 4;
+$_SESSION['sub_menu_active'] = 17;
 $permit = get_akses_permits($_SESSION['user_type_id'],$_SESSION['sub_menu_active']);
 $s_cabang = $_SESSION['branch_id'];
 $branch_active = get_branch($s_cabang);
@@ -51,7 +51,7 @@ switch ($page) {
                           '$tanggal',
                           '$item_id',
                           '$i_item_qty_lama',
-                          '$i_item_selisih'
+                          ''
                           ";
     create_config("penyesuaian_stock_cabang",$data_penyesuaian);
     update_stok($i_item_qty_baru, $i_branch_id, $item_id);

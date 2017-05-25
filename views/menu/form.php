@@ -1,22 +1,4 @@
 <!-- Content Header (Page header) -->
-
-                 <?php
-                if(isset($_GET['did']) && $_GET['did'] == 1){
-                ?>
-                <section class="content_new">
-
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Simpan gagal !</b>
-               Password dan confirm password tidak sama
-                </div>
-
-                </section>
-                <?php
-                }
-                ?>
-
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
@@ -44,15 +26,29 @@
                                             <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama menu ..." value="<?= $row->menu_name ?>"/>
                                           </div>
                                         <!-- menu kategori -->
-                                          <div class="form-group">
+<!--                                           <div class="form-group">
                                             <label>Kategori Utama</label>
                                             <select id="kategori_utama" name="i_menu_kategori" size="1" class="selectpicker show-tick form-control" data-live-search="true">
                                               <?php
                                               while($r_type = mysql_fetch_array($query_menu_kategori)){ ?>
-                                             <option <?php if($row->menu_kategori == $r_type['kategori_id']){ ?> selected="selected"<?php } ?> value="<?= $r_type['kategori_id'] ?>"><?= $r_type['kategori_name']?></option>
+                                             <option <?php if($row->menu_kategori == $r_type['kategori_id']){ ?> selected="selected"<?php } ?> 
+                                             value="<?= $r_type['kategori_id'] ?>"><?= $r_type['kategori_name']?>
+                                             </option>
                                              <?php } ?>
                                            </select>
-                                          </div>
+                                          </div> -->
+                                          <div class="form-group">
+                                            <label>Satuan Utama</label>
+                                            <select id="menu_satuan" name="menu_satuan" size="1" class="selectpicker show-tick form-control" data-live-search="true">
+                                            <?php
+                                            while($r_satuan = mysql_fetch_array($q_satuan)){?>
+                                                  <option value="<?= $r_satuan['satuan_id'] ?>"
+                                                  <?php if ($row->menu_satuan == $r_satuan['satuan_id']){echo "selected";}?>
+                                                  ><?= $r_satuan['satuan_name']?> 
+                                                  </option>
+                                            <?}?>
+                                            </select>
+                                          </div>  
 										                    <div class="form-group">
                                             <label>HPP</label>
                                             <input type="textarea" name="i_original_price_currency" id="i_original_price_currency" 
@@ -88,8 +84,8 @@
                                           <div style="clear:both;"></div>
                                 </div><!-- /.box-body -->
                                   <div class="box-footer">
-                                <input class="btn btn-primary" type="submit" value="Simpan"/>
-                                <a href="<?= $close_button?>" class="btn btn-danger" >Keluar</a>
+                                <input class="btn btn-primary" type="submit" value="Save"/>
+                                <a href="<?= $close_button?>" class="btn btn-danger" >Close</a>
                                   </div>
 
                             </div><!-- /.box -->
@@ -113,6 +109,7 @@
                                             <tr>
                                               <th width="5%">No</th>
                                               <th style="text-align: center;">Nama Bahan</th>
+                                              <th style="text-align: center;">Satuan</th>
                                               <th style="text-align: center;">Qty</th>
                                               <th style="text-align: center;">Config</th>
                                             </tr>
@@ -125,6 +122,7 @@
                                             <tr>
                                               <td><?= $no?></td>
                                               <td><?= $row_recipe['item_name']?></td>
+                                              <td><?= $row_recipe['satuan_name']?></td>
                                               <td><?= format_rupiah($row_recipe['item_qty'])?></td>
                                               <td style="text-align:center;">
                                                   <a href="javascript:void(0)" class="btn btn-default" 
@@ -132,7 +130,7 @@
                                                     <i class="fa fa-pencil"></i>
                                                   </a>
                                                   <a href="javascript:void(0)" onclick="confirm_delete(<?= $row_recipe['menu_recipe_id']; ?>,
-                                                  'menu.php?page=delete_recipes&menu_id=<?= $row->menu_id ?>&id=')" class="btn btn-default" >
+                                                  'menu.php?page=delete_recipes&menu_id=<?= $row->menu_id ?>&id=')" class="btn btn-danger" >
                                                     <i class="fa fa-trash-o"></i>
                                                   </a>
                                               </td>
@@ -145,8 +143,8 @@
                                           <tfoot>
                                             <tr>
                                                 <td colspan="4">
-                                                  <a href="javascript:void(0)" class="btn btn-danger" 
-                                                  onclick="menu_recipe('','')">Add Item
+                                                  <a href="javascript:void(0)" class="btn btn-success" 
+                                                  onclick="menu_recipe('','')">Tambah
                                                   </a>
                                                 </td>
                                             </tr>
@@ -158,8 +156,9 @@
                         </div>
                     </div>
                     <?php
-					}
-					?>
+					           }
+					           ?>
+                  <?php if($id){include '../views/menu/form_konversi.php';}?>
                 </section><!-- /.content -->  
 
 
@@ -201,4 +200,5 @@ function number_currency_(elem){
   $(elem_id).val(formatted);
   $(elem_no_cur).val(gabung);
 }
+
 </script>

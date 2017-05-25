@@ -6,8 +6,8 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Pembelian");
 
-$_SESSION['menu_active'] = 4;
-$_SESSION['sub_menu_active'] = 22;
+$_SESSION['menu_active'] = 5;
+$_SESSION['sub_menu_active'] = 23;
 $permit = get_akses_permits($_SESSION['user_type_id'],$_SESSION['sub_menu_active']);
 switch ($page) {
 	case 'list':
@@ -114,7 +114,7 @@ switch ($page) {
 		create_config('item_stocks', $data_i);
 		}
 		// simpan jurnal
-		create_journal($data_id, "purchase.php?page=form&id=", 2, $i_harga, $i_user_id, $i_branch_id);
+		create_journal($i_code, "purchase.php?page=form&id=", 2, $i_total, $i_user_id, $i_branch_id);
 		unset($_SESSION['item_id']);
 		header("Location: purchase.php?page=list&did=1");
 

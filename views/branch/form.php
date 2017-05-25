@@ -15,19 +15,19 @@
                 <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama ..." value="<?= strtoupper($row->branch_name)?>"/>
               </div>
               <div class="form-group">
-                <label>Phone</label>
+                <label>Telepon</label>
                 <input required type="number" name="i_phone" class="form-control" placeholder="Masukkan telepon..." value="<?= $row->branch_phone ?>"/>
               </div>
               <div class="form-group">
-                <label>Address</label>
+                <label>Alamat</label>
                 <input required type="text" name="i_address" class="form-control" placeholder="Masukkan alamat..." value="<?= $row->branch_address ?>"/>
               </div>
               <div class="form-group">
-                <label>City</label>
+                <label>Kota</label>
                 <input required type="text" name="i_city" class="form-control" placeholder="Masukkan kota..." value="<?= $row->branch_city ?>"/>
               </div>
               <div class="form-group">
-                <label>Description</label>
+                <label>Deskripsi</label>
                 <textarea name="i_desc" class="form-control" rows="5"><?= $row->branch_desc ?></textarea>
               </div>
               <div class="form-group">

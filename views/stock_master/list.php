@@ -40,14 +40,14 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
           <thead>
             <tr>
               <th width="5%">No</th>
-              <th style="text-align:center;max-width: 100px;">Nama Item</th>
-              <th style="text-align:center;max-width: 100px;">Kategori Item</th>
-              <th style="text-align:center;max-width: 100px;">Limit Item</th>
+              <th style="text-align:center;max-width: 150px;">Nama Bahan</th>
+              <th style="text-align:center;max-width: 150px;">Satuan Utama</th>
+              <th style="text-align:center;max-width: 80px;">Limit Bahan</th>
               <?php
                   $no=1;
                   $q_branch = select_config('branches', '');
                   while ($r_branch = mysql_fetch_array($q_branch)) {?>
-                    <th style="text-align:center;max-width: 100px;"><?= $r_branch['branch_name']?></th>
+                    <th style="text-align:center;max-width: 200px;"><?= $r_branch['branch_name']?></th>
                   <?}?>
               <th style="text-align:center;max-width: 200px;">Harga Pokok Produksi</th>
               <th style="text-align:center;width: 100px;">Config</th>
@@ -60,8 +60,8 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
             <tr>
                <td style="text-align:center;"><?= $no?></td>
                <td><?= $row['item_name']?></td>
-               <td><?= $row['item_kategori']?></td>
-               <td><?= $row['item_limit']?></td>
+               <td><?= $row['satuan_name']?></td>
+               <td style="text-align:center;"><?= $row['item_limit']?></td>
                <?php
                 $q_branch_ = select_config('branches', '');
                 while ($r_branch = mysql_fetch_array($q_branch_)) {?>
@@ -88,7 +88,7 @@ if(isset($_GET['did']) && $_GET['did'] == 1){ ?>
       </tbody>
         <tfoot>
           <tr>
-            <td colspan="8">
+            <td colspan="5">
               <?php if (strpos($permit, 'c') !== false): ?>
               <a href="<?= $add_button ?>" class="btn btn-success " >Tambah</a>
             <?php endif;?>
