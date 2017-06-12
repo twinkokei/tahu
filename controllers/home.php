@@ -18,7 +18,7 @@ switch ($page) {
 		// } else {
 		// 	$where_branch = " and branch_id = '".$_SESSION['branch_id']."' ";
 		// }
-		$q_piutang = select_piutang();		
+		$q_piutang = select_piutang();
 		include '../views/layout/home.php';
 		get_footer();
 	break;

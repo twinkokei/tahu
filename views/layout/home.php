@@ -112,8 +112,7 @@ $(document).ready(function(){
   var date_parse_to_hc_pembelian_ = [];
   var date_parse_to_hc_penjualan_ = [];
   var pembelian_ = '';
-  function get_val_chart()
-  {
+  function get_val_chart(){
     $.ajax({
       dataType  : "json",
       data      : "get",
@@ -134,8 +133,7 @@ $(document).ready(function(){
     });
   }
   get_val_chart();
-function Highcharts_(pembelian, penjualan)
-{
+function Highcharts_(pembelian, penjualan){
   // console.log(data);
   Highcharts.chart('container', {
       chart: {
